@@ -1,34 +1,13 @@
-@Library('my-shared-library01') _
+// vars/myLibrary.groovy
 
-pipeline {
-    agent any
+def buildApp() {
+    echo "Now building the application..."
+}
 
-    stages {
-        stage('Build') {
-            steps {
-                script {
-                    // קריאה לפונקציית הבנייה מהספרייה שלך
-                    myLibrary.buildApp()
-                }
-            }
-        }
+def deployApp(String branchName) {
+    echo "Now deploying the application on branch: ${branchName}..."
+}
 
-        stage('Deploy') {
-            steps {
-                script {
-                    // קריאה לפונקציית הפריסה
-                    myLibrary.deployApp('main')
-                }
-            }
-        }
-    }
-
-    post {
-        always {
-            script {
-                // קריאה לפונקציית הניקוי
-                myLibrary.cleanup()
-            }
-        }
-    }
+def cleanup() {
+    echo "Cleaning up after build and deployment..."
 }
