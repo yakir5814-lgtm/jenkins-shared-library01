@@ -1,5 +1,3 @@
-// vars/securityScan.groovy
 def call() {
-    echo "--- [Security] Running security vulnerability scan ---"
-
+    echo "Running Trivy Vulnerability Scan..."
 }
