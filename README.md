@@ -1,5 +1,3 @@
-#Script Pipeline
-
 pipeline {
     agent any
 
